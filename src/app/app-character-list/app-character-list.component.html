@@ -1,0 +1,22 @@
+<div class="details-slider">
+    <mat-slide-toggle (change)="toggleShowDetails()">Show details</mat-slide-toggle>
+</div>
+
+<mat-list>
+    <div *ngFor="let char of characterList" >
+        <mat-list-item>
+            <img matListAvatar [src]="char.img" [alt]="char.name">
+            <h3 matLine>{{ char.name }}</h3>
+        </mat-list-item>
+        <div *ngIf="showDetails" class="details">
+            <div>Height: {{ char.height }}</div>
+            <div>Mass: {{ char.mass }}</div>
+            <div>Hair Color: {{ char.hair_color }}</div>
+            <div>Skin Color: {{ char.skin_color }}</div>
+            <div>Eye Color: {{ char.eye_color }}</div>
+            <div>Birth Year: {{ char.birth_year }}</div>
+            <div>Gender: {{ char.gender }}</div>
+            <div>Force: {{ char.force }}</div>
+        </div>
+    </div>
+</mat-list>

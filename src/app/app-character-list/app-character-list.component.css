@@ -1,0 +1,10 @@
+.details {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.details-slider {
+    display: flex;
+    justify-content: right;
+}
