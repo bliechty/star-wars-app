@@ -13,12 +13,14 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppCharacterListComponent } from './app-character-list/app-character-list.component';
 import { AppSidenavContentComponent } from './app-sidenav-content/app-sidenav-content.component';
+import { FilterCharacters } from './pipes/filter-characters.pipe.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AppCharacterListComponent,
-    AppSidenavContentComponent
+    AppSidenavContentComponent,
+    FilterCharacters
   ],
   imports: [
     BrowserModule,

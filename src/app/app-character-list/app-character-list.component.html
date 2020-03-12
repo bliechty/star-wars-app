@@ -1,14 +1,22 @@
-<div class="details-slider">
-    <mat-slide-toggle (change)="toggleShowDetails()">Show details</mat-slide-toggle>
+<form class="form">
+    <mat-form-field class="input-width">
+        <mat-label>Character Search</mat-label>
+        <input matInput placeholder="Ex. bb8" name="searchInput" [(ngModel)]="searchInput">
+    </mat-form-field>
+</form>
+
+<div class="details-character-slider">
+    <mat-slide-toggle (change)="toggleShowCharacters()">Show characters</mat-slide-toggle>
+    <mat-slide-toggle (change)="toggleShowDetails()" [checked]="showDetails">Show details</mat-slide-toggle>
 </div>
 
 <mat-list>
-    <div *ngFor="let char of characterList" >
-        <mat-list-item>
+    <div *ngFor="let char of characterList | filterCharacters:searchInput" >
+        <mat-list-item *ngIf="showCharacters">
             <img matListAvatar [src]="char.img" [alt]="char.name">
             <h3 matLine>{{ char.name }}</h3>
         </mat-list-item>
-        <div *ngIf="showDetails" class="details">
+        <div *ngIf="showDetails && showCharacters" class="details">
             <div>Height: {{ char.height }}</div>
             <div>Mass: {{ char.mass }}</div>
             <div>Hair Color: {{ char.hair_color }}</div>

@@ -4,8 +4,8 @@
     flex-direction: column;
 }
 
-.details-slider {
+.details-character-slider {
     display: flex;
-    justify-content: flex-end;
-    margin-right: 10px;
+    flex-direction: column;
+    margin-left: 10px;
 }

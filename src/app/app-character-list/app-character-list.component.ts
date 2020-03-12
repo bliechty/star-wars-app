@@ -8,9 +8,20 @@ import { Character } from '../models/character';
 })
 export class AppCharacterListComponent implements OnInit {
   showDetails: boolean = false;
+  showCharacters: boolean = false;
+  searchInput: string = "";
 
   toggleShowDetails(): void {
     this.showDetails = !this.showDetails;
+  }
+
+  toggleShowCharacters(): void {
+    if (this.showCharacters) {
+      this.showCharacters = false;
+      this.showDetails = false;
+    } else {
+      this.showCharacters = true;
+    }
   }
 
   characterList: Array<Character> = [
