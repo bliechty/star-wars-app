@@ -39,7 +39,7 @@ export class AppCharacterListComponent implements OnInit {
     }
   }
 
-  onForceChange($event): void {
-    console.log($event);
+  onForceChange($event, i): void {
+    this.characterList[i].force = $event;
   }
 }
