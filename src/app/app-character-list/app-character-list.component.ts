@@ -22,11 +22,9 @@ export class AppCharacterListComponent implements OnInit {
 
   toggleShowDetails($event): void {
     if (!this.showDetails && !this.showCharacters) {
-      console.log("here");
       $event.source.checked = false;
     } else if (this.showCharacters && !this.showDetails) {
-      $event.source.checked = true;
-      this.showDetails = !this.showDetails;
+      this.showDetails = true;
     } else {
       this.showDetails = !this.showDetails;
     }
