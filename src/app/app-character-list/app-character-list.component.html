@@ -6,8 +6,8 @@
 </form>
 
 <div class="details-character-slider">
-    <mat-slide-toggle (change)="toggleShowCharacters()">Show characters</mat-slide-toggle>
-    <mat-slide-toggle (change)="toggleShowDetails()" [checked]="showDetails">Show details</mat-slide-toggle>
+    <mat-slide-toggle (change)="toggleShowCharacters($event)">Show characters</mat-slide-toggle>
+    <mat-slide-toggle (change)="toggleShowDetails($event)" [checked]="showDetails">Show details</mat-slide-toggle>
 </div>
 
 <mat-list>
@@ -15,16 +15,10 @@
         <mat-list-item *ngIf="showCharacters">
             <img matListAvatar [src]="char.img" [alt]="char.name">
             <h3 matLine>{{ char.name }}</h3>
+            <p matLine *ngIf="showDetails && showCharacters">
+                <span>{{ char.gender }} - {{ char.birth_year }}</span>
+                <app-force [forceStrength]="char.force" (forceChange)="onForceChange($event)"></app-force>
+            </p>  
         </mat-list-item>
-        <div *ngIf="showDetails && showCharacters" class="details">
-            <div>Height: {{ char.height }}</div>
-            <div>Mass: {{ char.mass }}</div>
-            <div>Hair Color: {{ char.hair_color }}</div>
-            <div>Skin Color: {{ char.skin_color }}</div>
-            <div>Eye Color: {{ char.eye_color }}</div>
-            <div>Birth Year: {{ char.birth_year }}</div>
-            <div>Gender: {{ char.gender }}</div>
-            <div>Force: {{ char.force }}</div>
-        </div>
     </div>
 </mat-list>

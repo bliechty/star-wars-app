@@ -8,16 +8,31 @@ import { Character } from '../models/character';
   styleUrls: ['./app-character-list.component.css']
 })
 export class AppCharacterListComponent implements OnInit {
-  showDetails: boolean = false;
-  showCharacters: boolean = false;
+  showDetails: boolean
+  showCharacters: boolean;
   searchInput: string = "";
   characterList: Array<Character> = characterArray;
 
-  toggleShowDetails(): void {
-    this.showDetails = !this.showDetails;
+  constructor() { }
+
+  ngOnInit(): void {
+    this.showDetails = false;
+    this.showCharacters = false;
   }
 
-  toggleShowCharacters(): void {
+  toggleShowDetails($event): void {
+    if (!this.showDetails && !this.showCharacters) {
+      console.log("here");
+      $event.source.checked = false;
+    } else if (this.showCharacters && !this.showDetails) {
+      $event.source.checked = true;
+      this.showDetails = !this.showDetails;
+    } else {
+      this.showDetails = !this.showDetails;
+    }
+  }
+
+  toggleShowCharacters($event): void {
     if (this.showCharacters) {
       this.showCharacters = false;
       this.showDetails = false;
@@ -26,9 +41,7 @@ export class AppCharacterListComponent implements OnInit {
     }
   }
 
-  constructor() { }
-
-  ngOnInit(): void {
+  onForceChange($event): void {
+    console.log($event);
   }
-
 }
