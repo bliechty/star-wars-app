@@ -1,23 +1,32 @@
-import { Component, OnInit } from '@angular/core';
-import { characterArray } from '../app-data/characterArray';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Character } from '../models/character';
+import { CharacterService } from '../services/character-service.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-character-list',
   templateUrl: './app-character-list.component.html',
   styleUrls: ['./app-character-list.component.css']
 })
-export class AppCharacterListComponent implements OnInit {
+export class AppCharacterListComponent implements OnInit, OnDestroy {
   showDetails: boolean
   showCharacters: boolean;
   searchInput: string = "";
-  characterList: Array<Character> = characterArray;
+  characterList: Array<Character>;
+  characterSubscribe: Subscription;
 
-  constructor() { }
+  constructor(private characterService: CharacterService) { }
 
   ngOnInit(): void {
     this.showDetails = false;
     this.showCharacters = false;
+    this.characterSubscribe = this.characterService.getCharacters().subscribe(data => {
+      this.characterList = data;
+    });
+  }
+
+  ngOnDestroy(): void {
+    this.characterSubscribe.unsubscribe();
   }
 
   toggleShowDetails($event): void {
