@@ -9,6 +9,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { FormsModule } from '@angular/forms';
 import { MatIconModule } from '@angular/material/icon';
+import { MatMenuModule } from '@angular/material/menu';
 
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -16,6 +17,9 @@ import { AppCharacterListComponent } from './app-character-list/app-character-li
 import { AppSidenavContentComponent } from './app-sidenav-content/app-sidenav-content.component';
 import { FilterCharacters } from './pipes/filter-characters.pipe.component';
 import { ForceComponent } from './force/force.component';
+import { HttpClientModule } from '@angular/common/http';
+import { HomeComponent } from './home-component/home-component.component';
+import { AppRoutingModule } from './app-routing/app-routing.module';
 
 @NgModule({
   declarations: [
@@ -23,7 +27,8 @@ import { ForceComponent } from './force/force.component';
     AppCharacterListComponent,
     AppSidenavContentComponent,
     FilterCharacters,
-    ForceComponent
+    ForceComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
@@ -36,7 +41,10 @@ import { ForceComponent } from './force/force.component';
     MatInputModule,
     MatSlideToggleModule,
     FormsModule,
-    MatIconModule
+    MatIconModule,
+    HttpClientModule,
+    AppRoutingModule,
+    MatMenuModule
   ],
   providers: [],
   bootstrap: [AppComponent]

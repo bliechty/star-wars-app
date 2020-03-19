@@ -12,7 +12,7 @@ export class AppCharacterListComponent implements OnInit, OnDestroy {
   showDetails: boolean
   showCharacters: boolean;
   searchInput: string = "";
-  characterList: Array<Character>;
+  characterList: Array<any>;
   characterSubscribe: Subscription;
 
   constructor(private characterService: CharacterService) { }
@@ -20,8 +20,10 @@ export class AppCharacterListComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.showDetails = false;
     this.showCharacters = false;
-    this.characterSubscribe = this.characterService.getCharacters().subscribe(data => {
-      this.characterList = data;
+    this.characterSubscribe = this.characterService.getCharacters().subscribe(characters => {
+      this.characterList = characters.results;
+      console.log(characters);
+      console.log(this.characterList);
     });
   }
 

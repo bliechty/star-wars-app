@@ -3,7 +3,7 @@ import { Character } from '../models/character';
 
 @Pipe({name: 'filterCharacters'})
 export class FilterCharacters implements PipeTransform {
-  transform(array: Character[], filterTerm: string) :Character[] {
+  transform(array: any[], filterTerm: string) : any[] {
     const regex = new RegExp(`^${filterTerm}`, "i");
     return array.filter(character => regex.test(character.name));
   }
