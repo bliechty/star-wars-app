@@ -1,6 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { Character } from '../models/character';
-import { CharacterService } from '../services/character-service.service';
+import { CharacterService } from '../../services/character-service.service';
 import { Subscription } from 'rxjs';
 
 @Component({
@@ -21,9 +20,7 @@ export class AppCharacterListComponent implements OnInit, OnDestroy {
     this.showDetails = false;
     this.showCharacters = false;
     this.characterSubscribe = this.characterService.getCharacters().subscribe(characters => {
-      this.characterList = characters.results;
-      console.log(characters);
-      console.log(this.characterList);
+      this.characterList = characters;
     });
   }
 

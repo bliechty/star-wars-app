@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
-import { HomeComponent } from '../home-component/home-component.component';
+import { AppCharacterListComponent } from '../characters/app-character-list/app-character-list.component';
 
 const routes: Routes = [{
-  path: '', component: HomeComponent
+  path: 'characters', component: AppCharacterListComponent
 }];
 
 @NgModule({
@@ -17,4 +17,4 @@ const routes: Routes = [{
     RouterModule
   ]
 })
-export class AppRoutingModule { }
+export class CharactersRoutingModule { }
