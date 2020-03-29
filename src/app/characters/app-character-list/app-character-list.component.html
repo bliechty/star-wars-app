@@ -11,9 +11,9 @@
 </div>
 
 <mat-list>
-    <div *ngFor="let char of characterList | filterCharacters:searchInput; let i = index" >
+    <div *ngFor="let char of characterList | filterCharacters:searchInput; let i = index">
         <mat-list-item *ngIf="showCharacters">
-            <img matListAvatar [src]="char.img" [alt]="char.name">
+            <img matListAvatar [src]="char.img" [alt]="char.name" routerLink="/character/{{ char.id }}" id="cursor">
             <h3 matLine>{{ char.name }}</h3>
             <p matLine *ngIf="showDetails && showCharacters">
                 <span>{{ char.gender }} - {{ char.birth_year }}</span>

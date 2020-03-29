@@ -6,8 +6,9 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatListModule } from '@angular/material/list';
 import { MatCardModule } from '@angular/material/card';
 import { MatInputModule } from '@angular/material/input';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
 
 @NgModule({
   declarations: [],
@@ -20,7 +21,9 @@ import { MatIconModule } from '@angular/material/icon';
     MatCardModule,
     MatInputModule,
     FormsModule,
-    MatIconModule
+    MatIconModule,
+    ReactiveFormsModule,
+    MatButtonModule
   ]
 })
 export class SharedModule { }

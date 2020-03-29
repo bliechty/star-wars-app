@@ -5,12 +5,14 @@ import { ForceComponent } from './force/force.component';
 import { MatIconModule } from '@angular/material/icon';
 import { FilterCharacters } from '../pipes/filter-characters.pipe.component';
 import { CharactersRoutingModule } from './characters-routing.module';
+import { CharacterDetailsComponent } from './character-details/character-details.component';
 
 @NgModule({
   declarations: [
     AppCharacterListComponent,
     ForceComponent,
-    FilterCharacters
+    FilterCharacters,
+    CharacterDetailsComponent
   ],
   imports: [
     SharedModule,

@@ -1,0 +1,58 @@
+<mat-card *ngIf="form">
+    <mat-card-title>Character Details</mat-card-title>
+    <mat-card-content>
+        <form [formGroup]="form">
+            <section>
+                <mat-form-field>
+                    <input 
+                        matInput 
+                        type="text" 
+                        placeholder="Name"
+                        formControlName="name"
+                        required
+                    >
+                </mat-form-field>
+            </section>
+            <section>
+                <mat-form-field>
+                    <input 
+                        matInput 
+                        type="text" 
+                        placeholder="Gender"
+                        formControlName="gender"
+                        required
+                    >
+                </mat-form-field>
+            </section>
+            <section>
+                <mat-form-field>
+                    <input 
+                        matInput 
+                        type="text" 
+                        placeholder="Force"
+                        formControlName="force"
+                        required
+                    >
+                </mat-form-field>
+            </section>
+            <section formArrayName="vehicles">
+                <mat-card-subtitle>Vehicles</mat-card-subtitle>
+                <section *ngFor="let v of vehicles.controls; let i=index">
+                  <div [formGroupName]="i">
+                    <mat-form-field>
+                      <input matInput type="text" placeholder="Model Name" formControlName="modelName">
+                    </mat-form-field>
+                    <mat-form-field>
+                      <input matInput type="text" placeholder="Power Level" formControlName="powerLevel">
+                    </mat-form-field>
+                    <mat-form-field>
+                      <input matInput type="text" placeholder="Color" formControlName="color">
+                    </mat-form-field>
+                    <button mat-raised-button (click)="addVehicle()" *ngIf="i == vehicles.controls.length-1">Add</button>
+                  </div>
+                </section>
+              </section>
+            <button mat-raised-button>Update Character</button>
+        </form>
+    </mat-card-content>
+</mat-card>
